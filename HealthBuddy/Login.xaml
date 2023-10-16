@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthBuddy.Login"
+             BackgroundColor="#112B47">
+    <ContentPage.Content>
+        <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand" >
+            <Image Source="HealthBuddy_logo.jpg" WidthRequest="180" HeightRequest="180" Margin="40"></Image>
+            <Entry x:Name="txtEmail" Placeholder="Email" PlaceholderColor="Gray" TextColor="White"></Entry>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Entry x:Name="txtPassword" Placeholder="Contraseña" IsPassword="True" PlaceholderColor="gray" TextColor="White" HorizontalOptions="FillAndExpand" ></Entry>
+                <Image Source="eye_hidden.png" x:Name="passwordToggleImage" WidthRequest="30" HeightRequest="30">
+                    <Image.GestureRecognizers>
+                      <TapGestureRecognizer Tapped="TogglePassword_Tapped" />
+                     </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Button VerticalOptions="Center"
+              Text="Iniciar Session"
+              TextColor="White"
+              BorderColor="#06c6bb"
+              BorderWidth="3"
+              BackgroundColor="Transparent"
+              CornerRadius="40"
+              Clicked="Button_Clicked">
+                
+            </Button>
+            <Label Padding="11" TextColor="White" HorizontalOptions="Center" FontSize="Subtitle" >
+                
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="No tienes cuenta? " TextColor="White"/>
+                        <Span Text="Regístrate Aquí" FontAttributes="Bold" TextDecorations="Underline" TextColor="Blue"/>
+                    </FormattedString>
+                </Label.FormattedText>
+
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+                
+            </Label>
+             <Label Text="Recuperar cuenta" TextColor="Blue" TextDecorations="Underline" HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ForgotPassword_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthBuddy.Register"
+             BackgroundColor="#112B47">
+    <ContentPage.Content>
+        <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand" >
+            
+            <Image Source="HealthBuddy_logo.jpg" WidthRequest="150" HeightRequest="150" Margin="10"></Image>
+            
+            <Entry x:Name="txtFirstName" Placeholder="Nombre" PlaceholderColor="Gray" TextColor="White"></Entry>
+            <Label x:Name="FirstNameErrorLabel" Text="El nombre es obligatorio" TextColor="Red" IsVisible="False" />
+            <Entry x:Name="txtLastName" Placeholder="Apellido" PlaceholderColor="Gray" TextColor="White"></Entry>
+            <Label x:Name="LastNameErrorLabel" Text="El nombre es obligatorio" TextColor="Red" IsVisible="False" />
+
+            <Picker x:Name="txtGender"  Title="Seleccione Género" SelectedIndexChanged="OnGenderSelected" TitleColor="Gray" TextColor="White">
+                <Picker.Items>
+                    <x:String>Masculino</x:String>
+                    <x:String>Femenino</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label x:Name="GenderErrorLabel" Text="El genero es obligatorio" TextColor="Red" IsVisible="False" />
+
+            <Entry x:Name="txtEmail" Placeholder="Email" PlaceholderColor="Gray" TextColor="White"></Entry>
+            <Label x:Name="EmailErrorLabel" Text="El nombre es obligatorio" TextColor="Red" IsVisible="False" />
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Entry x:Name="txtHigherFear" Placeholder="Cual es tu mayor miedo" IsPassword="True" PlaceholderColor="gray" TextColor="White" HorizontalOptions="FillAndExpand" ></Entry>
+                <Image Source="eye_hidden.png" x:Name="HigherFearToggleImage" WidthRequest="30" HeightRequest="30">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ToggleHigherFear_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Label x:Name="HigherFearErrorLabel" Text="El nombre es obligatorio" TextColor="Red" IsVisible="False" />
+
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+           
+                <Entry Grid.Row="1" x:Name="txtPassword" Placeholder="Contraseña" IsPassword="True" PlaceholderColor="gray" TextColor="White"></Entry>
+                <Image Grid.Row="1" Source="eye_hidden.png" x:Name="passwordToggleImage" WidthRequest="30" HeightRequest="30" HorizontalOptions="EndAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TogglePassword_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Entry Grid.Row="2" x:Name="txtPasswordConfirmation" Placeholder="Confirmar Contraseña" IsPassword="True" PlaceholderColor="gray" TextColor="White"></Entry>
+
+            </Grid>
+            <Label x:Name="PasswordErrorLabel" Text="La contraseña obligatorio" TextColor="Red" IsVisible="False" />
+
+            <Button VerticalOptions="Center"
+              Text="Registrarse"
+              TextColor="White"
+              BorderColor="#06c6bb"
+              BorderWidth="3"
+              BackgroundColor="Transparent"
+              CornerRadius="40"
+              Clicked="OnRegisterButtonClicked">
+
+            </Button>
+            <Label Padding="11" TextColor="White" HorizontalOptions="Center" FontSize="Subtitle">
+
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Tienes cuenta? " TextColor="White"/>
+                        <Span Text="Inicia Session" FontAttributes="Bold" TextDecorations="Underline" TextColor="Blue"/>
+                    </FormattedString>
+                </Label.FormattedText>
+
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+
+            </Label>
+
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
